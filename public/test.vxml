@@ -9,8 +9,6 @@
   <property name="authorization" value="Bearer eed7f4368c614c4cb531772cd34c99bd"/>
   <var name="timezone" expr="'America/New_York'"/>
   <var name="lang" expr="'en'"/>
-
-  <var name="answer" expr="'Sorry i got that'" />
   <var name="sessionId" expr="session.connection.remote.uri"/>
   <var name="query" expr="'Hi'"/>
   <form id="main">
@@ -19,22 +17,32 @@
       <property name="completetimeout" value="700ms"/>
       <property name="interdigittimeout" value="1000ms"/>
       <property name="sensitivity" value="0.5"/>
-      <prompt><value expr="answer"/></prompt>
+      <prompt>Please say your welcome message</prompt>
       <noinput>
         <prompt>Sorry I didnt recieve any input</prompt>
        
       </noinput>
+      <grammar mode="voice"
+         root="root_rule3"
+         tag-format="semantics/1.0"
+         type="application/srgs+xml"
+         version="1.0">
+         <rule id="root_rule3" scope="public">
+         <one-of>
+			  <item>Hi</item>
+				<item>Hello</item>
+		  	</one-of>
+         </rule>
+</grammar>
       <filled>
         <prompt cond="false"><value expr="text"/></prompt>
-      </filled>
-    </field>
-    <block name="block">
-      <assign name="query" expr="text"/>
-      <prompt>Srini</prompt>
-      <prompt cond="false"><value expr="query"/></prompt>
+        <prompt>Srini</prompt>
+              <assign name="query" expr="text"/>              
       <data name="api" src="https://api.dialogflow.com/v1/query?v=20180529" method="post" enctype="application/json" namelist="timezone lang sessionId query" fetchtimeout="15s"/>
       <assign name="answer" expr="api.result.fulfillment.speech"/>
       <goto next="#main"/>
-    </block>
+      </filled>
+    </field>
+
   </form>
  </vxml>
