@@ -12,7 +12,7 @@
   <var name="sessionId" expr="session.connection.remote.uri"/>
   <var name="query" expr="'Hi'"/>
   <form id="main">
-    <field cond="true" type = "text" name = "text">
+    <field name ="main_selection">
       <property name="timeout" value="5s"/>
       <property name="completetimeout" value="700ms"/>
       <property name="interdigittimeout" value="1000ms"/>
@@ -35,7 +35,7 @@
          </rule>
       </grammar>
       <filled>
-        <prompt>Srini</prompt>
+        <prompt>You said<value expr="main_selection"/></prompt>
    
       <goto next="#main"/>
       </filled>
