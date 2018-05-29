@@ -3,22 +3,8 @@
 <vxml xmlns="http://www.w3.org/2001/vxml" 
       version="2.1" 
       xml:lang="en-US">
-   <property name="inputmodes" value="voice"/>
-  <property name="interdigittimeout" value="900ms"/>
-  <property name="timeout" value="10s"/>
-  <property name="confidencelevel" value="0.3"/>
-  <property name="authorization" value="Bearer eed7f4368c614c4cb531772cd34c99bd"/>
-  <var name="timezone" expr="'America/New_York'"/>
-  <var name="lang" expr="'en'"/>
-  <var name="answer" expr="'Sorry i got that'" />
-  <var name="sessionId" expr="session.connection.remote.uri"/>
-  <var name="query" expr="'Hi'"/>
 <form id="WelcomeYorkshire">
 <field name="main_selection">
-    <property name="timeout" value="5s"/>
-      <property name="completetimeout" value="700ms"/>
-      <property name="interdigittimeout" value="1000ms"/>
-      <property name="sensitivity" value="0.5"/>
 <prompt>Please say your welcome message</prompt>
 <grammar mode="voice"
          root="root_rule3"
@@ -29,7 +15,6 @@
          <one-of>
 			  <item>Hi</item>
 				<item>Hello</item>
-				
 		  	</one-of>
          </rule>
 </grammar>
