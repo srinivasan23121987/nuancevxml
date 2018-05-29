@@ -31,7 +31,7 @@
     <block name="block">
       <assign name="query" expr="text"/>
       <prompt cond="false"><value expr="query"/></prompt>
-      <data name="api" src="https://api.api.ai/v1/query?v=20150910" method="post" enctype="application/json" namelist="timezone lang sessionId query" fetchtimeout="15s"/>
+      <data name="api" src="https://api.dialogflow.com/v1/query?v=20180529" method="post" enctype="application/json" namelist="timezone lang sessionId query" fetchtimeout="15s"/>
       <assign name="answer" expr="api.result.fulfillment.speech"/>
       <goto next="#main"/>
     </block>
