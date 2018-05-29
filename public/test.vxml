@@ -36,7 +36,7 @@
       </grammar>
       <filled>
         <prompt>You said<value expr="main_selection"/></prompt>
-   
+   <data name="api" src="https://api.dialogflow.com/v1/query?v=20180529" method="post" enctype="application/json" namelist="timezone lang sessionId query" fetchtimeout="15s"/>
       <goto next="#main"/>
       </filled>
     </field>
