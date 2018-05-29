@@ -1,0 +1,39 @@
+
+
+<?xml version = "1.0"?>
+<vxml version = "2.1" xmlns="http://www.w3.org/2001/vxml" xml:lang="en-US">
+  <property name="inputmodes" value="voice"/>
+  <property name="interdigittimeout" value="900ms"/>
+  <property name="timeout" value="10s"/>
+  <property name="confidencelevel" value="0.3"/>
+  <property name="authorization" value="Bearer eed7f4368c614c4cb531772cd34c99bd"/>
+  <var name="timezone" expr="'America/New_York'"/>
+  <var name="lang" expr="'en'"/>
+
+  <var name="answer" expr="'Sorry i got that'" />
+  <var name="sessionId" expr="session.connection.remote.uri"/>
+  <var name="query" expr="'Hi'"/>
+  <form id="main">
+    <field cond="true" type = "text" name = "text">
+      <property name="timeout" value="5s"/>
+      <property name="completetimeout" value="700ms"/>
+      <property name="interdigittimeout" value="1000ms"/>
+      <property name="sensitivity" value="0.5"/>
+      <prompt><value expr="answer"/></prompt>
+      <noinput>
+        <prompt>Sorry I didnt recieve any input</prompt>
+       
+      </noinput>
+      <filled>
+        <prompt cond="false"><value expr="text"/></prompt>
+      </filled>
+    </field>
+    <block name="block">
+      <assign name="query" expr="text"/>
+      <prompt cond="false"><value expr="query"/></prompt>
+      <data name="api" src="https://api.api.ai/v1/query?v=20150910" method="post" enctype="application/json" namelist="timezone lang sessionId query" fetchtimeout="15s"/>
+      <assign name="answer" expr="api.result.fulfillment.speech"/>
+      <goto next="#main"/>
+    </block>
+  </form>
+ </vxml>

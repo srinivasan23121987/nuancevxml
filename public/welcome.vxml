@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<!DOCTYPE vxml PUBLIC "-//Nuance/DTD VoiceXML 2.0//EN" "http://voicexml.nuance.com/dtd/nuancevoicexml-2-0.dtd">-->
+<vxml xmlns="http://www.w3.org/2001/vxml" 
+      version="2.1" 
+      xml:lang="en-US">
+<form id="WelcomeYorkshire">
+<field name="main_selection">
+<prompt>Please Select your preferred mode of travel</prompt>
+<grammar mode="voice"
+         root="root_rule3"
+         tag-format="semantics/1.0"
+         type="application/srgs+xml"
+         version="1.0">
+         <rule id="root_rule3" scope="public">
+         <one-of>
+			  <item>Train</item>
+				<item>Bus</item>
+				<item>Aeroplane</item>
+		  	</one-of>
+         </rule>
+</grammar>
+<filled>
+<if cond="main_selection$.confidence > 0.75">
+  <prompt>Nuance Nbest is <break size="medium"/> <value expr="lastresult$[0]"/> <break size="medium"/>. You have spelled correctly.</prompt>
+  <goto next="#WelcomeYorkshire"/>
+<else/>
+  <prompt>You have <break size="medium"/> wrongly spelled.</prompt>
+ <goto next="#WelcomeYorkshire"/>
+</if>
+</filled>
+</field>
+</form>
+</vxml>
