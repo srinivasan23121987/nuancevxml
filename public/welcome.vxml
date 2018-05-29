@@ -12,7 +12,7 @@
   <var name="lang" expr="'en'"/>
 
   <var name="answer" expr="'Sorry i got that'" />
-  <var name="sessionId" expr="12345"/>
+  <var name="sessionId" expr="'12345'"/>
   <var name="query" expr="'Hi'"/>
 <form id="WelcomeYorkshire">
 <field name="main_selection">
