@@ -47,7 +47,7 @@
    <prompt>
     Transferring this call to 
     <say-as interpret-as="digits">
-     <value expr="target"/>
+     <value expr="'9176727764'"/>
     </say-as>
    </prompt>
   </transfer>
