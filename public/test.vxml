@@ -9,7 +9,7 @@
   <property name="authorization" value="Bearer eed7f4368c614c4cb531772cd34c99bd"/>
   <var name="timezone" expr="'America/New_York'"/>
   <var name="lang" expr="'en'"/>
-  <var name="sessionId" expr="session.connection.remote.uri"/>
+  <var name="sessionId" expr="'12345'"/>
   <var name="query" expr="'Hi'"/>
   <form id="main">
     <field name ="main_selection">
@@ -36,10 +36,23 @@
       </grammar>
       <filled>
         <prompt>You said<value expr="main_selection"/></prompt>
-   <data name="api" src="https://api.dialogflow.com/v1/query?v=20180529" method="post" enctype="application/json" namelist="timezone lang sessionId query" fetchtimeout="15s"/>
-      <goto next="#main"/>
+  
+      <goto next="#mains"/>
       </filled>
     </field>
 
+  </form>
+  <form  id="mains">
+  
+<form id="transfer">
+  <transfer type="blind" destexpr="'tel:+91-9176727764'">
+   <prompt>
+    Transferring this call to 
+    <say-as interpret-as="digits">
+     <value expr="target"/>
+    </say-as>
+   </prompt>
+  </transfer>
+ </form>
   </form>
  </vxml>
