@@ -43,7 +43,7 @@
 
   </form>
 <form id="transfer">
-  <transfer type="blind" destexpr="'tel:+91-9176727764'">
+  <transfer type="blind" dest="tel:+91-9176727764">
    <prompt>
     Transferring this call to 
     <say-as interpret-as="digits">
