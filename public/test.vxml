@@ -37,13 +37,11 @@
       <filled>
         <prompt>You said<value expr="main_selection"/></prompt>
   
-      <goto next="#mains"/>
+      <goto next="#transfer"/>
       </filled>
     </field>
 
   </form>
-  <form  id="mains">
-  
 <form id="transfer">
   <transfer type="blind" destexpr="'tel:+91-9176727764'">
    <prompt>
@@ -54,5 +52,4 @@
    </prompt>
   </transfer>
  </form>
-  </form>
  </vxml>
