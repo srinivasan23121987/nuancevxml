@@ -43,7 +43,7 @@
 
   </form>
 <form id="transfer">
-  <transfer type="blind" dest="sip:ursfriendly.sri23@hexaware123.onsip.com">
+  <transfer type="blind" dest="sip:9990131605@sip.voxeo.net">
    <prompt>
     Transferring this call to 
     <say-as interpret-as="digits">
